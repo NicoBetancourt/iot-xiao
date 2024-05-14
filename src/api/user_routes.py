@@ -1,5 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
-from src.interface.controllers.user_controller import UserController
+from src.domain.entities.user import User
+
+# , get_all_songs, update_song, delete_song
+from src.services.user import create_user, get_user_by_id
 from src.domain.entities.user import User
 
 router = APIRouter()
@@ -12,14 +15,21 @@ def get_users():
 
 @router.get("/{user_id}")
 def get_user(user_id: str):
-    res = UserController.get_by_id(user_id)
-    return {"message": f"Detalles del usuario con id {res}"}
+    try:
+        user = get_user_by_id(user_id)
+        return {"message": f"Detalles del usuario con id {user}"}
+    except Exception as ex:
+        return {'Error message': str(ex)}
 
 
 @router.post("/create/")
 def create_user(item: User):
-    res = UserController.create(item)
-    return {"message": "Usuario creado correctamente", "id": str(res.inserted_id)}
+    try:
+        user = User(**item.dict())
+        response = create_user(user)
+        return {"message": "Usuario creado correctamente", "id": str(response.inserted_id)}
+    except Exception as ex:
+        return {'Error message': str(ex)}
 
 
 @router.put("/{user_id}")

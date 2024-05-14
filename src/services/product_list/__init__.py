@@ -1,9 +1,9 @@
 # Use cases package
-from src.application.use_cases.product_list.create_product_list import CreateProductList
-from src.application.use_cases.product_list.get_one_product_list import GetOneProductList
-from src.application.use_cases.product_list.get_all_product_list import GetAllProductList
-from src.application.use_cases.product_list.update_product_list import UpdateProductList
-from src.application.use_cases.product_list.delete_one_product_list import DeleteProductList
+from src.services.product_list.create_product_list import CreateProductList
+from src.services.product_list.get_one_product_list import GetOneProductList
+from src.services.product_list.get_all_product_list import GetAllProductList
+from src.services.product_list.update_product_list import UpdateProductList
+from src.services.product_list.delete_one_product_list import DeleteProductList
 
 # Repos
 from src.domain.repositories.product_list_repo import ProductListRepository

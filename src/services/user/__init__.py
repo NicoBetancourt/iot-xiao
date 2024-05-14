@@ -1,6 +1,6 @@
 # Use cases package
-from src.application.use_cases.user.create_user import CreateUser
-from src.application.use_cases.user.get_one_user import GetOneUser
+from src.services.user.create_user import CreateUser
+from src.services.user.get_one_user import GetOneUser
 
 # Repos
 from src.domain.repositories.user_repo import UserRepository
