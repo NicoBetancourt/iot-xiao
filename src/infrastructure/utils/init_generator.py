@@ -1,4 +1,4 @@
-from transformers import pipeline
+from transformers import pipeline, ViTForImageClassification, ViTImageProcessor
 
 def initialize_generator():
     """
@@ -16,3 +16,7 @@ def initialize_generator():
     )
     
     return generator
+
+generator = initialize_generator()
+model = ViTForImageClassification.from_pretrained('google/vit-base-patch16-224')
+processor = ViTImageProcessor.from_pretrained('google/vit-base-patch16-224')

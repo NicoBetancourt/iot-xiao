@@ -1,10 +1,8 @@
 from src.api import image_routes, product_list_routes
-from src.infrastructure.utils.init_generator import initialize_generator
 from src.api import user_routes
 from fastapi import FastAPI
 
 app = FastAPI()
-generator = initialize_generator()
 
 try:
 

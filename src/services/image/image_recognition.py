@@ -1,10 +1,12 @@
-from src.infrastructure.ia.transformer_gen import TransformerGen
+from src.infrastructure.ia.image_transformer import TransformerImageGen
 
 
 class ImageRecognition:
-    def __init__(self, transformer_repo: TransformerGen):
+    def __init__(self, transformer_repo: TransformerImageGen):
         self.transformer_repo = transformer_repo
 
     def execute(self, img_path:str) -> str:
-        res = self.transformer_repo.image_recognize(img_path)
-        return res
+        images = self.transformer_repo.image_segmentation(img_path)
+        images_labels = self.transformer_repo.image_classification(images)
+        
+        return images_labels
